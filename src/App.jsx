@@ -182,9 +182,30 @@ function App() {
               <div className="mt-[1.6rem] flex mb-[20px] justify-evenly text-[1rem] text-[#5b5e7e]">
                 <p>{counter} items left</p>
                 <div className="flex gap-[1.9rem]">
-                  <p onClick={handleAll}>All</p>
-                  <p onClick={handleActive}>Active</p>
-                  <p onClick={handleCompleted}>Completed</p>
+                  <p
+                    onClick={handleAll}
+                    className={`
+                    ${allActive ? "text-[#3a7cfd]" : null}
+                    `}
+                  >
+                    All
+                  </p>
+                  <p
+                    onClick={handleActive}
+                    className={`
+                    ${active ? "text-[#3a7cfd]" : null}
+                    `}
+                  >
+                    Active
+                  </p>
+                  <p
+                    onClick={handleCompleted}
+                    className={`
+                    ${completed ? "text-[#3a7cfd]" : null}
+                    `}
+                  >
+                    Completed
+                  </p>
                 </div>
                 <p onClick={handleClearCompleted}>Clear Completed</p>
               </div>
