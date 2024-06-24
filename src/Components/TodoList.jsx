@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function TodoList({
   todos,
@@ -36,65 +35,37 @@ export default function TodoList({
   };
 
   const handleDelete = (id) => {
-    setAllTodos(() =>
-      allTodos.filter((todo) => {
-        return todo.id !== id;
-      })
-    );
-
-    setTodos(() =>
-      allTodos.filter((todo) => {
-        return todo.id !== id;
-      })
-    );
+    setAllTodos(() => allTodos.filter((todo) => todo.id !== id));
+    setTodos(() => allTodos.filter((todo) => todo.id !== id));
   };
 
   const handleAll = () => {
     setCompleted(false);
     setAllActive(true);
     setActive(false);
-    setTodos(() => {
-      return allTodos;
-    });
+    setTodos(() => allTodos);
   };
 
   const handleActive = () => {
     setCompleted(false);
     setAllActive(false);
     setActive(true);
-    setTodos(() =>
-      allTodos.filter((todo) => {
-        return todo.isDone === false;
-      })
-    );
+    setTodos(() => allTodos.filter((todo) => !todo.isDone));
   };
 
   const handleCompleted = () => {
     setCompleted(true);
     setAllActive(false);
     setActive(false);
-    setTodos(() =>
-      allTodos.filter((todo) => {
-        return todo.isDone === true;
-      })
-    );
+    setTodos(() => allTodos.filter((todo) => todo.isDone));
   };
 
   const handleClearCompleted = () => {
-    setAllTodos(() =>
-      allTodos.filter((todo) => {
-        return todo.isDone !== true;
-      })
-    );
-
-    setTodos(() =>
-      allTodos.filter((todo) => {
-        return todo.isDone !== true;
-      })
-    );
+    setAllTodos(() => allTodos.filter((todo) => !todo.isDone));
+    setTodos(() => allTodos.filter((todo) => !todo.isDone));
   };
 
-  const counter = todos.map((todo) => todo).length;
+  const counter = todos.length;
 
   return (
     <div className="md:flex justify-center">
@@ -108,7 +79,7 @@ export default function TodoList({
             {todos.map((todo) => (
               <li
                 key={todo.id}
-                className={`flex justify-between items-center py-[1.4rem] px-[2rem] border-b-[1px] 
+                className={`group flex justify-between items-center py-[1.4rem] px-[2rem] border-b-[1px] 
                     border-b-solid ${
                       dark ? "border-b-[#393a4b]" : "border-b-[#e3e4f1]"
                     } lg:py-[1.8rem] lg:px-[2.5rem]`}
@@ -136,7 +107,7 @@ export default function TodoList({
                 <img
                   src="/images/icon-cross.svg"
                   alt="cross icon"
-                  className="w-[1.2rem] h-[1.2rem] cursor-pointer"
+                  className="w-[1.2rem] h-[1.2rem] cursor-pointer md:hidden group-hover:block"
                   onClick={() => handleDelete(todo.id)}
                 />
               </li>
