@@ -82,7 +82,7 @@ export default function TodoList({
                 className={`group flex justify-between items-center py-[1.4rem] px-[2rem] border-b-[1px] 
                     border-b-solid ${
                       dark ? "border-b-[#393a4b]" : "border-b-[#e3e4f1]"
-                    } lg:py-[1.8rem] lg:px-[2.5rem]`}
+                    } lg:py-[1.8rem] lg:px-[3.5rem]`}
               >
                 <div className="flex items-center gap-[1.2rem] text-[1.2rem] lg:text-[1.8rem]">
                   <input
@@ -107,7 +107,8 @@ export default function TodoList({
                 <img
                   src="/images/icon-cross.svg"
                   alt="cross icon"
-                  className="w-[1.2rem] h-[1.2rem] cursor-pointer md:hidden group-hover:block"
+                  className="w-[1.2rem] h-[1.2rem] cursor-pointer md:hidden group-hover:block
+                  lg:w-[1.8rem] lg:h-[1.8rem]"
                   onClick={() => handleDelete(todo.id)}
                 />
               </li>
