@@ -54,6 +54,20 @@ function App() {
     ]);
   };
 
+  const handleDelete = (id) => {
+    setAllTodos(() =>
+      allTodos.filter((todo) => {
+        return todo.id !== id;
+      })
+    );
+
+    setTodos(() =>
+      allTodos.filter((todo) => {
+        return todo.id !== id;
+      })
+    );
+  };
+
   const counter = todos.map((todo) => todo).length;
 
   return (
@@ -105,6 +119,7 @@ function App() {
                     src="/images/icon-cross.svg"
                     alt="cross icon"
                     className="w-[1.2rem] h-[1.2rem]"
+                    onClick={() => handleDelete(todo.id)}
                   />
                 </li>
               ))}
