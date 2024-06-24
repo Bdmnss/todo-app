@@ -161,7 +161,15 @@ function App() {
                       type="checkbox"
                       onChange={(event) => handleCheck(todo.id, event)}
                     />
-                    {todo.text}
+                    <span
+                      className={`${
+                        todo.isDone
+                          ? "line-through text-[#4d5067]"
+                          : "text-[#c8cbe7]"
+                      }`}
+                    >
+                      {todo.text}
+                    </span>
                   </div>
                   <img
                     src="/images/icon-cross.svg"
