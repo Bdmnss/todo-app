@@ -45,7 +45,7 @@ export default function AddTodo({ setTodos, setAllTodos, dark }) {
             ? "bg-[#25273d] placeholder-[#767992] text-[#c8cbe7]"
             : "bg-white placeholder-[#9495a5] text-[#393a4b]"
         } 
-               text-white outline-none rounded-[5px] text-[1.2rem]`}
+              outline-none rounded-[5px] text-[1.2rem]`}
         type="text"
         placeholder="Create a new todo..."
         value={inputValue}
