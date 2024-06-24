@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "dark-bg-img-dekstop": "/images/bg-desktop-dark.jpg",
-        "dark-bg-img-mobile": "/images/bg-mobile-dark.jpg",
-        "light-bg-img-dekstop": "/images/bg-desktop-light.jpg",
-        "light-bg-img-mobile": "public/images/bg-mobile-light.jpg",
+        "dark-bg-img-dekstop": "url('/images/bg-desktop-dark.jpg')",
+        "dark-bg-img-mobile": "url('/images/bg-mobile-dark.jpg')",
+        "light-bg-img-dekstop": "url(/images/bg-desktop-light.jpg')",
+        "light-bg-img-mobile": "url(/images/bg-mobile-light.jpg')",
       },
     },
   },

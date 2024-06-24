@@ -58,44 +58,67 @@ function App() {
 
   return (
     <>
-      <main>
-        <div>
-          <h1>TODO</h1>
-          <img src="/images/icon-sun.svg" alt="sun icon" />
-        </div>
-        <div>
-          <button onClick={handleAdd}></button>
-          <input
-            type="text"
-            placeholder="Create a new todo..."
-            value={inputValue}
-            onChange={(event) => setInputValue(event.target.value)}
-            onKeyDown={handleEnter}
-          />
-        </div>
+      <main
+        className="min-h-screen min-w-screen bg-dark-bg-img-mobile bg-contain bg-no-repeat 
+      bg-[#171823]"
+      >
+        <div className="mx-auto  px-[2.4rem] pt-[4.8rem] pb-[12.6rem]">
+          <div className="flex justify-between items-center mb-[2rem]">
+            <h1 className="text-[3rem] tracking-[1.2rem] text-white font-bold">
+              TODO
+            </h1>
+            <img src="/images/icon-sun.svg" alt="sun icon" />
+          </div>
+          <div className="relative mb-[1.6rem]">
+            <button
+              onClick={handleAdd}
+              className="absolute w-[2rem] h-[2rem] bg-[#25273d] top-[29%] left-[4%] rounded-[50%] 
+              border-[1px] border-solid border-[#393a4b] "
+            ></button>
+            <input
+              className="w-[100%] py-[1.4rem] pr-[10rem] pl-[4rem] bg-[#25273d] 
+              placeholder-[#767992] text-white outline-none rounded-[5px] text-[1.2rem]"
+              type="text"
+              placeholder="Create a new todo..."
+              value={inputValue}
+              onChange={(event) => setInputValue(event.target.value)}
+              onKeyDown={handleEnter}
+            />
+          </div>
 
-        <div>
-          <ul>
-            {todos.map((todo) => (
-              <li>
-                <input
-                  type="checkbox"
-                  onChange={(event) => handleCheck(event, item.id)}
-                />
-                {todo.text}
-                <img src="/images/icon-cross.svg" alt="cross icon" />
-              </li>
-            ))}
-            <div>
-              <p>{counter} items left</p>
-              <div>
-                <p>All</p>
-                <p>Active</p>
-                <p>Completed</p>
+          <div className="rounded-[5px] overflow-hidden bg-[#25273d] ">
+            <ul>
+              {todos.map((todo) => (
+                <li
+                  key={todo.id}
+                  className="flex justify-between items-center py-[1.4rem] pr-[3rem] 
+                  pl-[2rem] bg-[#25273d] border-b-[1px] border-b-solid border-b-[#393a4b]"
+                >
+                  <div className="flex items-center gap-[1.2rem] text-[1.2rem] text-[#c8cbe7]">
+                    <input
+                      type="checkbox"
+                      onChange={(event) => handleCheck(event, todo.id)}
+                    />
+                    {todo.text}
+                  </div>
+                  <img
+                    src="/images/icon-cross.svg"
+                    alt="cross icon"
+                    className="w-[1.2rem] h-[1.2rem]"
+                  />
+                </li>
+              ))}
+              <div className="mt-[1.6rem] flex mb-[20px] justify-evenly text-[1rem] text-[#5b5e7e]">
+                <p>{counter} items left</p>
+                <div className="flex gap-[1.9rem]">
+                  <p>All</p>
+                  <p>Active</p>
+                  <p>Completed</p>
+                </div>
+                <p>Clear Completed</p>
               </div>
-              <p>Clear Completed</p>
-            </div>
-          </ul>
+            </ul>
+          </div>
         </div>
       </main>
     </>
