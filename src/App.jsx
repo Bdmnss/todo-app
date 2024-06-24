@@ -4,6 +4,9 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [allTodos, setAllTodos] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [allActive, setAllActive] = useState(true);
+  const [active, setActive] = useState(false);
+  const [completed, setCompleted] = useState(false);
 
   const handleAdd = () => {
     setTodos((prevTodos) => [
@@ -68,6 +71,51 @@ function App() {
     );
   };
 
+  const handleAll = () => {
+    setCompleted(false);
+    setAllActive(true);
+    setActive(false);
+    setTodos(() => {
+      return allTodos;
+    });
+  };
+
+  const handleActive = () => {
+    setCompleted(false);
+    setAllActive(false);
+    setActive(true);
+    setTodos(() =>
+      allTodos.filter((todo) => {
+        return todo.isDone === false;
+      })
+    );
+  };
+
+  const handleCompleted = () => {
+    setCompleted(true);
+    setAllActive(false);
+    setActive(false);
+    setTodos(() =>
+      allTodos.filter((todo) => {
+        return todo.isDone === true;
+      })
+    );
+  };
+
+  const handleClearCompleted = () => {
+    setAllTodos(() =>
+      allTodos.filter((todo) => {
+        return todo.isDone !== true;
+      })
+    );
+
+    setTodos(() =>
+      allTodos.filter((todo) => {
+        return todo.isDone !== true;
+      })
+    );
+  };
+
   const counter = todos.map((todo) => todo).length;
 
   return (
@@ -111,7 +159,7 @@ function App() {
                   <div className="flex items-center gap-[1.2rem] text-[1.2rem] text-[#c8cbe7]">
                     <input
                       type="checkbox"
-                      onChange={(event) => handleCheck(event, todo.id)}
+                      onChange={(event) => handleCheck(todo.id, event)}
                     />
                     {todo.text}
                   </div>
@@ -126,11 +174,11 @@ function App() {
               <div className="mt-[1.6rem] flex mb-[20px] justify-evenly text-[1rem] text-[#5b5e7e]">
                 <p>{counter} items left</p>
                 <div className="flex gap-[1.9rem]">
-                  <p>All</p>
-                  <p>Active</p>
-                  <p>Completed</p>
+                  <p onClick={handleAll}>All</p>
+                  <p onClick={handleActive}>Active</p>
+                  <p onClick={handleCompleted}>Completed</p>
                 </div>
-                <p>Clear Completed</p>
+                <p onClick={handleClearCompleted}>Clear Completed</p>
               </div>
             </ul>
           </div>
