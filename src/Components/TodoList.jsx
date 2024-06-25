@@ -82,11 +82,11 @@ export default function TodoList({
                 className={`group flex justify-between items-center py-[1.4rem] px-[2rem] border-b-[1px] 
                     border-b-solid ${
                       dark ? "border-b-[#393a4b]" : "border-b-[#e3e4f1]"
-                    } lg:py-[1.8rem] lg:px-[3.5rem]`}
+                    } lg:py-[1.8rem] lg:px-[1.8rem] 2xl:px-[2.7rem]`}
               >
                 <div className="flex items-center gap-[1.2rem] text-[1.2rem] lg:text-[1.8rem]">
                   <input
-                    className="cursor-pointer"
+                    className="custom-checkbox"
                     type="checkbox"
                     onChange={(event) => handleCheck(todo.id, event)}
                   />
