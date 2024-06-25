@@ -3,9 +3,9 @@ import AddTodo from "./Components/AddTodo";
 import TodoList from "./Components/TodoList";
 
 function App() {
-  const [todos, setTodos] = useState([]);
   const [allTodos, setAllTodos] = useState([]);
   const [dark, setDark] = useState(true);
+  const [filter, setFilter] = useState("all");
 
   const handleDarkMode = () => {
     setDark(!dark);
@@ -36,11 +36,11 @@ function App() {
             />
           </div>
 
-          <AddTodo setTodos={setTodos} setAllTodos={setAllTodos} dark={dark} />
+          <AddTodo allTodos={allTodos} setAllTodos={setAllTodos} dark={dark} />
 
           <TodoList
-            todos={todos}
-            setTodos={setTodos}
+            filter={filter}
+            setFilter={setFilter}
             allTodos={allTodos}
             setAllTodos={setAllTodos}
             dark={dark}

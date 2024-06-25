@@ -1,18 +1,10 @@
 import React from "react";
 import { useState } from "react";
 
-export default function AddTodo({ setTodos, setAllTodos, dark }) {
+export default function AddTodo({ setAllTodos, dark }) {
   const [inputValue, setInputValue] = useState("");
 
   const handleAdd = () => {
-    setTodos((prevTodos) => [
-      ...prevTodos,
-      {
-        text: inputValue,
-        isDone: false,
-        id: Math.random(),
-      },
-    ]);
     setAllTodos((prevTodos) => [
       ...prevTodos,
       {
