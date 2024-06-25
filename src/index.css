@@ -18,7 +18,7 @@ html {
 }
 
 .custom-checkbox {
-  @apply appearance-none w-8 h-8 lg:w-[2.4rem] lg:h-[2.4rem] rounded-full cursor-pointer bg-[#25273d] border border-[#393a4b];
+  @apply appearance-none w-8 h-8 lg:w-[2.4rem] lg:h-[2.4rem] rounded-full cursor-pointer border;
   position: relative;
 }
 

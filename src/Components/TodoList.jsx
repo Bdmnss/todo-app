@@ -86,7 +86,9 @@ export default function TodoList({
               >
                 <div className="flex items-center gap-[1.2rem] text-[1.2rem] lg:text-[1.8rem]">
                   <input
-                    className="custom-checkbox"
+                    className={`custom-checkbox ${
+                      dark ? "bg[#25273d] border-[#393a4b]" : "bg-white"
+                    }`}
                     type="checkbox"
                     onChange={(event) => handleCheck(todo.id, event)}
                   />
