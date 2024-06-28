@@ -7,10 +7,6 @@ export default function TodoList({
   filter,
   setFilter,
 }) {
-  const [allActive, setAllActive] = useState(true);
-  const [active, setActive] = useState(false);
-  const [completed, setCompleted] = useState(false);
-
   const handleCheck = (id, event) => {
     setAllTodos((prevTodos) => [
       ...prevTodos.map((item) =>

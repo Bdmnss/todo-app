@@ -6,12 +6,12 @@ export default function AddTodo({ setAllTodos, dark }) {
 
   const handleAdd = () => {
     setAllTodos((prevTodos) => [
-      ...prevTodos,
       {
         text: inputValue,
         isDone: false,
         id: Math.random(),
       },
+      ...prevTodos,
     ]);
     setInputValue("");
   };
